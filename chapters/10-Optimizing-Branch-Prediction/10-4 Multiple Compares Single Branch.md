@@ -47,7 +47,7 @@ uint32_t longestLine(const std::string &str) {
       lineBeginPos += curLen + 1;
       // Is this line the longest?
       maxLen = std::max(curLen, maxLen);
-      // Shift the mask to check if we have more '\n'
+      // Shift the mask to check if we have more '\n'. Notice shift by 8 bits on uint8_t is UB.
       mask >>= eolPos + 1;
     }
   }
